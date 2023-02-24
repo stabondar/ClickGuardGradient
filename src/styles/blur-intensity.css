@@ -1,0 +1,21 @@
+.blur-section__item.is--2,
+.blur-section__item.is--1
+{
+    transition: opacity 0.3s ease;
+}
+
+.blur-section__item.is--2
+{
+    opacity: 0.4;
+}
+
+.blur-section__item.is--1
+{
+    opacity: 0.3;
+}
+
+.blur-half .blur-section__item.is--2,
+.blur-half .blur-section__item.is--1
+{
+    opacity: 0.8 !important;
+}

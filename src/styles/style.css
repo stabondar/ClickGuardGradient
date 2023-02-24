@@ -1,27 +1,45 @@
+@import url(blur-intensity.css);
+
 main
 {
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
-.loader
+.footer__terms-item.last,
+.cookies__preferences
 {
-  display: block;
+    pointer-events: none;
 }
 
-.burger__item.w--current
+.w-webflow-badge
 {
-  pointer-events: none;
+    display: none !important;
 }
 
-.burger__item.w--current .h3--84
+.form__submit--parent,
+.form__submit--parent .btn
 {
-  color: #7870F1;
+    min-height: 100%;
 }
+
+.nav
+{
+    position: fixed !important;
+}
+
 
 ::selection
 {
-  background-color: #7870F1;
-  color: white;
-  -webkit-text-fill-color: white;
+  background-color: #B5F7DE;
+  color: #222;
+  -webkit-text-fill-color: #222;
   -webkit-text-stroke-color: transparent;
+}
+
+@media screen and (max-width: 991px) 
+{
+    /* main
+    {
+        overflow: hidden !important;
+    }     */
 }

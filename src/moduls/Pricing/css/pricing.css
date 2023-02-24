@@ -1,0 +1,80 @@
+.price-compare__item--bot,
+.faq__item--bot
+{
+    height: 0;
+}
+
+.price-compare__top
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100% !important;
+}
+
+.price-compare__top--item .btn.is--blue
+{
+    width: 100%;
+}
+
+.faq__icon--line.is--ab.open
+{
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+}
+
+.price-compare__item--bot .price-compare__item--row:last-child
+{
+    background: none !important;
+}
+
+.price-compare__item--top.open .h--20
+{
+    color: #0037ff
+}
+
+.price-compare__item--top.open .price-compare__item--icon
+{
+    transform: rotate(90deg);
+}
+
+.price-compare__top--parent
+{
+    pointer-events: none;
+}
+
+.price-compare__top--item
+{
+    pointer-events: auto;
+}
+
+.pricing__dp--checked
+{
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.pricing__dp--checked.active
+{
+    opacity: 1 !important;
+}
+
+@media screen and (max-width: 991px) {
+    .price-compare__top--item .btn.is--blue,
+    .price-compare__top--item .btn.is--yellow {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .price-compare__top--item .btn.text {
+        display: none;
+    }
+}
+
+@media (max-width:480px) 
+{
+    /* .price-compare__top
+    {
+        will-change: transform;
+    }     */
+}
