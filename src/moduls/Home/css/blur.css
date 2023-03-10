@@ -1,4 +1,4 @@
 [data-page="home"] .main
 {
-    contain: initial;
+    contain: initial !important;
 }
