@@ -1,0 +1,47 @@
+@import './root.scss';
+@import './blur-intensity.scss';
+@import './white-nav.scss';
+
+main
+{
+    contain: paint;
+}
+
+.footer__terms-item.last,
+.cookies__preferences
+{
+    pointer-events: none;
+}
+
+.w-webflow-badge
+{
+    display: none !important;
+}
+
+.form__submit--parent,
+.form__submit--parent .btn
+{
+    min-height: 100%;
+}
+
+.nav
+{
+    position: fixed !important;
+}
+
+
+::selection
+{
+  background-color: #B5F7DE;
+  color: #222;
+  -webkit-text-fill-color: #222;
+  -webkit-text-stroke-color: transparent;
+}
+
+@media screen and (max-width: 991px) 
+{
+    /* main
+    {
+        overflow: hidden !important;
+    }     */
+}

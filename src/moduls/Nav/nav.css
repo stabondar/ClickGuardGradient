@@ -1,0 +1,91 @@
+.dp__item 
+{
+	pointer-events: none;
+}
+
+.dp__item.active 
+{
+    z-index: 2;
+    pointer-events: auto;
+    /* display: flex !important; */
+}
+
+.nav__item
+{
+    transition: color 0.3s ease;
+}
+
+.nav__item.active 
+{
+    color: #3BE082 !important;
+}
+
+.nav__item--arrow 
+{
+    display: none;
+}
+
+.nav__logo--color
+{
+    display: block;
+    opacity: 0;
+}
+
+.nav__logo
+{
+    position: relative;
+    z-index: 3;
+}
+
+@media screen and (max-width: 991px)
+{
+    .nav__item--arrow 
+    {
+        display: block;
+    }
+
+    .dp__list
+    {
+        background-color: transparent !important;
+    }    
+
+    .nav__dp--content.open
+    {
+        display: block !important;
+    }
+
+    .nav__back
+    {
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .nav__burger
+    {
+        scale: 1.5;
+    }
+
+    .nav__list
+    {
+        touch-action: none;
+        overflow: scroll;
+        display: none;
+    }
+
+    body.no-scroll
+    {
+        overflow: hidden !important;
+    }
+
+    .nav__item:last-child,
+    .dp__solution--column:last-child
+    {
+        border-bottom: none !important;
+    }
+
+    .nav__scroll
+    {
+        display: none;
+    }
+}

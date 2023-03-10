@@ -1,0 +1,82 @@
+[white-nav]
+{
+    & .nav
+    {
+        background-color: transparent;
+        color: $black;
+
+        // Change the logo
+        & .nav__logo
+        {
+            background-image: url(https://uploads-ssl.webflow.com/63e61b740cd4fdff916059b8/6405e6566cce84a0699276c6_Light%20theme%20logo.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            height: 100%;
+
+            & img
+            {
+                opacity: 0;
+            }
+        }
+
+        .nav__burger path
+        {
+            stroke: $black;
+        }
+    }
+}
+
+@media screen and (min-width: 991px) 
+{
+    [white-nav]
+    {
+        & .container.is--nav
+        {
+            // First Button
+            & .btn.is--yellow
+            {
+                background: $blue;
+                color: $white;
+
+                & .btn__border.is--black
+                {
+                    border-color: $yellow;
+                }
+
+                & .btn__border--bg-parent .btn__border--bg.is--black
+                {
+                    background-color: $yellow;
+                }
+            }
+
+            // Second Button
+            & .btn.is--white-stroke
+            {
+                background: $yellow;
+                color: $black;
+
+                & .btn__border
+                {
+                    border-color: $black;
+                }
+
+                & .btn__border--bg-parent .btn__border--bg
+                {
+                    background-color: $black;
+                }
+            }
+        }
+    } 
+}
+
+@media screen and (max-width: 991px) 
+{
+    [white-nav]
+    {
+        .nav
+        {
+            background-color: $white;
+        }
+    } 
+}
