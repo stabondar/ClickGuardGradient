@@ -1,3 +1,11 @@
-import Experience from './Experience'
+import './styles/style.css'
 
-const experience = new Experience()
+import bg from './moduls/Bg.js'
+import LocoGsap from './moduls/LocoGsap'
+
+const checkPages = () => 
+{
+    const background = new bg()
+    const scroll = new LocoGsap()
+}
+checkPages()
