@@ -3,12 +3,9 @@ import './validate.css'
 
 import intlTelInput from 'intl-tel-input'
 import { gsap } from 'gsap'
-import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import 'intl-tel-input/build/css/intlTelInput.css'
 
 import Validate from './Validate'
-
-gsap.registerPlugin(ScrollSmoother)
 
 export default class Login 
 {
@@ -80,60 +77,108 @@ export default class Login
         }
         form()
 
+        const validateForm = (login) =>
+        {
+            let input = login.find('input')
+            let emailInput = login.find('[type="email"]')
+            let firstNameInput = login.find('.login__form--item').eq(0).find('input')
+            let lastNameInput = login.find('.login__form--item').eq(1).find('input')
+            let UrlInput = login.find('.login__form--item').eq(3).find('input')
+            let error = login.find('input.error, select.error')
+            let submit = login.find('.form__submit--parent')
+            let checkbox = login.find('[type="checkbox"]')
+            let checkboxParent = login.find('.login__checkbox---parent')
+            let selectInput = login.find('.styledSelect.checked')
+            let selectOptions = login.find('.styledParent').find('li')
+
+            submit.addClass('disabled')
+
+            const checkInput = () =>
+            {
+                error = login.find('input.error, select.error')
+                selectInput = login.find('.styledSelect.checked')
+
+                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || UrlInput.val().length < 4 ||  error.length > 0 || checkbox.is(':checked') == false || selectInput.length == 0)
+                {
+                    submit.addClass('disabled')
+                } else
+                {
+                    submit.removeClass('disabled')
+                }
+
+                
+            }
+
+            input.on('keyup', () => checkInput())
+            checkboxParent.on('click', () => checkInput())
+            selectOptions.on('click', () => checkInput())
+        }
+
         const animation = () =>
         {
-            const login = $('.login'),
-                  logo = $('.login__cross'),
-                  btn = $('.btn')
-            login.addClass('hide')
+            const signin = $('[popup="signin"]')
+            const login = $('[popup="login"]')
+            const logo = $('.login__cross')
+            const btn = $('.btn')
 
-            const hide = () => { $('body').removeClass('login-open') }
-            const open = () => { $('body').addClass('login-open') }
+            const hideSingin = () => { $('body').removeClass('signin-open') }
+            const openSingin = () => { $('body').addClass('signin-open') }
 
-            let tl = gsap.timeline({ paused: true, onStart: open, onReverseComplete: hide })
+            const hideLogin = () => { $('body').removeClass('login-open') }
+            const openLogin = () => { $('body').addClass('login-open') }
 
-            tl.from(login, { opacity: 0 })
+            let tlSignin = gsap.timeline({ paused: true, onStart: openSingin, onReverseComplete: hideSingin })
+            let tlLogin = gsap.timeline({ paused: true, onStart: openLogin, onReverseComplete: hideLogin })
 
-            logo.on('click', () => {tl.reverse()})
+            tlSignin.from(signin, { opacity: 0 })
+            tlLogin.from(login, { opacity: 0 })
 
-            let connect
-            window.addEventListener('load', () => 
-            {
-                setTimeout(() => {
-                    connect = $('.intercom-launcher').find('div').eq(0)
-                }, 2000);
-            })
-
-
+            logo.on('click', () => {tlSignin.reverse(), tlLogin.reverse()})
+            
             $(btn).each(function()
             {
-                let self = $(this),
-                    text = self.find('p').text().toLowerCase(),
-                    attr = self.attr('href')
+                let self = $(this)
+                let attr = self.attr('btn')
 
                 self.on('click', () =>
                 {
-                    if(text == 'chat with support now') return
-                    if(text == 'free audit')
+                    if(attr == 'signup')
                     {
-                        $(connect).click()
-                    } else
+                        tlSignin.restart()
+                    }
+                    else if(attr == 'login')
                     {
-                        if(attr === '#')
-                        {
-                            if(text === 'accept all cookies' || text === 'accept' || text === 'save settings' || text === 'cookie settings')
-                            {
-                            } else 
-                            {
-                                tl.restart()
-                            }
-                        }
+                        tlLogin.restart()
+                    } else if(attr == 'chat')
+                    {
+                        self.attr("onclick", "$crisp.push(['do', 'chat:open'])")
                     }
                 })
             })
+
+            validateForm(login)
         }
         animation()
 
+        let signIn = document.getElementById('email-form');
+        signIn.addEventListener('submit', handlerCallback, true);
+
+        function handlerCallback(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
         const validate = new Validate()
+
+        // $('.btn').each(function()
+        // {
+        //     let self = $(this),
+        //         text = self.find('p').text().toLowerCase()
+
+        //     if(text == 'free audit')
+        //     {
+        //         self.attr("onclick", "$crisp.push(['do', 'chat:open'])")
+        //     }
+        // })
     }
 }  

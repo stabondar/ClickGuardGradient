@@ -4,6 +4,7 @@
 }
 
 .integration-accordion__point.active {
-    color: #222222;
-    background-color: white;
+    color: #0037FF;
+    background-color: transparent;
+    font-weight: 700;
 }

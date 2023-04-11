@@ -1,0 +1,20 @@
+.pricing__item--price
+{
+    position: relative;
+}
+
+.price-compare__top--item .btn
+{
+    margin-top: auto;
+}   
+
+@media screen and (min-width: 991px) and (max-width: 1200px)
+{
+    .pricing__item:nth-child(n + 2) .pricing__item--price .p--16:last-child
+    {
+        position: absolute;
+        top: 80%;
+        right: 20px;
+    }
+}
+

@@ -1,7 +1,5 @@
 import './jobs.css'
 
-// import 'https://jobs.clickguard.com/wp-content/uploads/2022/10/timeElapsed.min_.js'
-
 export default class Jobs 
 {
     constructor()
@@ -26,7 +24,7 @@ export default class Jobs
         $(document).ready(function () {
             $.ajax(settings).done(function (response) {
                 response.Result.forEach(function (job) {
-                    $("#jobs").append($(`<div class="jobs__item">
+                    $("#jobs").append($(`<div class="jobs__item bg--gradient">
                         <p class="jobs__timer p--14" data-time="${job.CreatedDate}">${job.CreatedDate}</p>
                         <h2 class="h--32">${job.JobTitle}</h1>
                         <div class="jobs__points">
@@ -45,15 +43,19 @@ export default class Jobs
                         </div>
                     </div>`));
 
-                    // console.log(job);
-                })
-            });
-        })
+                    const endDate = new Date()
+                    const startDate = new Date(job.CreatedDate)
+                    const diffTime = Math.abs(endDate - startDate)
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
-        $(document).ajaxStop(function() {
-            $('.jobs__timer').timeElapsed({
-                currentTime: new Date,
-                postfix:"ago",
+                    if(diffDays == 0) {
+                        $('.jobs__timer').text('Today')
+                    } else if(diffDays == 1) {
+                        $('.jobs__timer').text('Yesterday')
+                    } else {
+                        $('.jobs__timer').text(diffDays + ' days ago')
+                    }
+                })
             });
         })
     }

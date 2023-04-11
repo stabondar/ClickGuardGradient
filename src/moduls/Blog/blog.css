@@ -2,13 +2,14 @@
 .hero__slider--item.swiper-slide
 {
     width: 21.25em !important;
-    height: 34.03em !important;
+    height: auto !important;
 }
 
 .hero__slider
 {
     overflow: hidden !important;
     padding-right: 10.6em;
+    padding-bottom: 55px;
 }
 
 .hero__slider--bullets.swiper-pagination-bullets.swiper-pagination-horizontal
@@ -25,7 +26,7 @@
 
 .hero__slider--bullets
 {
-    bottom: -3.13em !important;
+    bottom: -1em !important;
 }
 
 .hero__slider--item .p--16
@@ -105,7 +106,6 @@
     .hero__slider--item.swiper-slide
     {
         width: 64em !important;
-        height: 125.87em !important;
     }
 
     .hero__slider
