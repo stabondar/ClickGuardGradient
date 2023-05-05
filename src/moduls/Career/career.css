@@ -21,7 +21,7 @@
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: auto;
-    width: 60%;
+    width: 52%;
 }
 
 .process__item--bot
@@ -169,12 +169,12 @@
     .proces__list
     {
         flex-direction: column;
-        height: 50.187rem;
+        height: 57.187rem;
     }
 
     .process__item.active
     {
-        height: 40% !important;
+        height: 38% !important;
     }
 
     .process__item

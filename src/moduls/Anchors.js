@@ -8,33 +8,6 @@ export default class Anchors
     constructor()
     {
         let off = window.innerHeight / 4
-        const whatIsPin = () =>
-            {
-                let sections = gsap.utils.toArray('[anchor]')
-                let item = $('.wic__left-item')
-                let rightNav = $('.wic__text-links').find('a')
-
-                $(item).each(function(i)
-                {
-                    let self = $(this)
-                    let currentSection = sections[i]
-                    self.on('click', () => 
-                    {
-                        gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
-                    })
-                })
-
-                $(rightNav).each(function(i)
-                {
-                    let self = $(this)
-                    let currentSection = sections[i]
-                    self.on('click', () => 
-                    {
-                        gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
-                    })
-                })
-            }
-            whatIsPin()
 
             const integrationPage = () =>
             {

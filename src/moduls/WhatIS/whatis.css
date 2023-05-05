@@ -4,7 +4,12 @@
     opacity: 0.5;
 }
 
-.wic__left-item.active
+html
 {
-    opacity: 1 !important;
+    scroll-padding-top: 250px;
 }
+
+.wic__right-item[id] {
+    padding-top: 250px;
+    margin-top: -250px;
+  }

@@ -1,3 +1,13 @@
+.login__form--item.active
+{
+    z-index: 6;
+
+    &#w-node-_9c4329e0-9133-e0d1-d7a3-eae60dca2f73-0dca2f18
+    {
+        z-index: 7;
+    }
+}
+
 .select 
 {
     --grey: #3B3B3B;
@@ -100,6 +110,8 @@
         opacity: 0;
         transition: opacity 0.3s ease;
         pointer-events: none;
+        max-height: 130px;
+        overflow: scroll;
 
         &.active 
         {

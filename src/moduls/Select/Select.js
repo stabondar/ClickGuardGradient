@@ -10,7 +10,8 @@ export default class Select
             // Cache the number of options
             let self = $(this)
             let numberOfOptions = $(this).children('option').length
-        
+            let formInputParent = self.closest('.login__form--item')
+
             // Hides the select element
             self.addClass('s-hidden')
         
@@ -49,9 +50,11 @@ export default class Select
                 if(!$(this).hasClass('active'))
                 {
                     $(this).find('ul.options').addClass('active')
+                    formInputParent.addClass('active')
                 } else 
                 {
                     $(this).find('ul.options').removeClass('active')   
+                    formInputParent.removeClass('active')
                 }
                 $(this).toggleClass('active')//.find('ul.options').toggle()
             })
@@ -65,6 +68,7 @@ export default class Select
                 self.val($(this).attr('rel'))
                 list.removeClass('active')  
                 styledSelect.addClass('checked')
+                formInputParent.removeClass('error')
 
                 // Remove error
                 self.add(parent).removeClass('error')
@@ -77,6 +81,7 @@ export default class Select
             $(document).click(function() {
                 parent.removeClass('active')
                 list.removeClass('active')  
+                formInputParent.removeClass('active')
             })
         
         })

@@ -98,15 +98,13 @@ export default class Login
                 error = login.find('input.error, select.error')
                 selectInput = login.find('.styledSelect.checked')
 
-                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || UrlInput.val().length < 4 ||  error.length > 0 || checkbox.is(':checked') == false || selectInput.length == 0)
+                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || UrlInput.val().length < 4 ||  error.length > 0 || checkbox.is(':checked') == false || selectInput.length < 1)
                 {
                     submit.addClass('disabled')
                 } else
                 {
                     submit.removeClass('disabled')
                 }
-
-                
             }
 
             input.on('keyup', () => checkInput())
