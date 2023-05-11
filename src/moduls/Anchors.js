@@ -97,7 +97,7 @@ export default class Anchors
                 $(item).each(function(i)
                 {
                     let self = $(this)
-                    let currentSection = sections[i + 1]
+                    let currentSection = sections[i]
                     self.on('click', () => 
                     {
                         gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off * 1.5} })
